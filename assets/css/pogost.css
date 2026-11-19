@@ -1,0 +1,89 @@
+/* ПОГОСТ — своя страница: готика, кровь, игрушечный кошмар. Заголовки — шрифт самой игры. */
+@font-face{font-family:"Pogost";src:url(../fonts/pogost.ttf) format("truetype");font-display:swap}
+:root{--bg:#0a0507;--bg2:#140a0d;--blood:#b3122f;--blood-l:#e0304e;--bone:#ecdcd4;--ash:#b9a4a0;--rust:#5a1a22;--gold:#c9a46a;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--bone);font:18px/1.7 Georgia,"Palatino Linotype","Times New Roman",serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background-image:radial-gradient(ellipse at 50% -10%,rgba(150,10,35,.35),transparent 55%),radial-gradient(ellipse at 100% 60%,rgba(90,10,25,.25),transparent 50%)}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--blood-l)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:2px solid var(--blood-l);outline-offset:3px}
+.g{font-family:"Pogost",Georgia,serif;font-weight:400;letter-spacing:.04em;text-transform:uppercase;line-height:1}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* верхняя полоса */
+.pbar{position:sticky;top:0;z-index:20;background:rgba(10,5,7,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--rust);padding-top:env(safe-area-inset-top,0px)}
+.pbar .wrap{display:flex;align-items:center;gap:16px;min-height:58px}
+.pbar a{color:var(--ash);text-decoration:none;font-size:15px}
+.pbar a:hover{color:var(--bone)}
+.pbar .back{font-family:"Pogost",Georgia,serif;letter-spacing:.08em;font-size:18px}
+.pbar .lang{margin-left:auto;display:flex;gap:4px}
+.pbar .lang a{padding:4px 10px;border:1px solid transparent;font-family:"Pogost",Georgia,serif;font-size:16px;letter-spacing:.08em}
+.pbar .lang a[aria-current]{border-color:var(--blood);color:var(--bone);background:rgba(179,18,47,.18)}
+
+/* первый экран */
+.phero{position:relative;min-height:min(92vh,860px);display:grid;align-items:end;overflow:hidden;border-bottom:1px solid var(--rust)}
+.phero .bg{position:absolute;inset:0;background-size:cover;background-position:70% 30%;filter:saturate(1.05)}
+.phero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,5,7,.96) 0%,rgba(10,5,7,.75) 38%,rgba(10,5,7,.1) 70%),linear-gradient(0deg,var(--bg) 0%,transparent 40%)}
+.phero .wrap{position:relative;z-index:2;padding-block:80px 70px;width:100%}
+.phero .pre{color:var(--ash);font-size:15px;letter-spacing:.3em;text-transform:uppercase}
+.phero h1{font-size:clamp(76px,15vw,190px);color:var(--bone);margin:10px 0 6px;
+  text-shadow:0 0 22px rgba(224,48,78,.65),0 0 60px rgba(179,18,47,.5),0 4px 0 #3a0710;animation:flick 6s infinite}
+@keyframes flick{0%,92%,100%{opacity:1}93%{opacity:.55}94%{opacity:1}96%{opacity:.7}97%{opacity:1}}
+.phero .lead{max-width:34em;font-size:clamp(18px,2.2vw,22px);font-style:italic;color:#e3cfc8}
+.plates{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.plate{font-family:"Pogost",Georgia,serif;letter-spacing:.08em;font-size:17px;padding:7px 14px 5px;border:1px solid var(--rust);background:rgba(20,10,13,.8);color:var(--bone);
+  clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 50%,calc(100% - 8px) 100%,8px 100%,0 50%)}
+.plate.age{border-color:var(--blood);background:var(--blood);color:#fff}
+.pbtn{display:inline-flex;align-items:center;gap:10px;margin-top:30px;padding:15px 34px 12px;font-family:"Pogost",Georgia,serif;font-size:22px;letter-spacing:.1em;color:#fff;text-decoration:none;
+  background:linear-gradient(180deg,#d0213f,#8c0b22);clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,14px 100%,0 50%);
+  box-shadow:0 0 30px rgba(224,48,78,.35);transition:filter .2s}
+.pbtn:hover{filter:brightness(1.2)}
+
+/* орнамент-разделитель */
+.thorn{display:block;width:min(520px,80%);height:28px;margin:0 auto;color:var(--blood)}
+
+/* секции */
+.psec{padding-block:70px}
+.ph2{font-size:clamp(40px,6vw,64px);color:var(--bone);text-align:center;margin-bottom:12px;text-shadow:0 0 18px rgba(179,18,47,.55)}
+.frame{position:relative;max-width:820px;margin:34px auto 0;padding:clamp(24px,4vw,44px);background:linear-gradient(180deg,rgba(28,12,16,.92),rgba(16,7,10,.92));
+  border:1px solid var(--rust);outline:1px solid rgba(90,26,34,.45);outline-offset:6px}
+.frame::before,.frame::after{content:"";position:absolute;width:14px;height:14px;background:var(--blood);transform:rotate(45deg);top:-8px}
+.frame::before{left:-8px}.frame::after{right:-8px}
+.frame p+p{margin-top:14px}
+
+.pfeat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:40px}
+@media (max-width:900px){.pfeat{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.pfeat{grid-template-columns:1fr}}
+.pf{border:1px solid var(--rust);background:rgba(20,9,12,.85);padding:22px 20px;position:relative}
+.pf::before{content:"";position:absolute;left:20px;top:-6px;width:11px;height:11px;background:var(--blood);transform:rotate(45deg);box-shadow:0 0 12px rgba(224,48,78,.7)}
+.pf h3{font-family:"Pogost",Georgia,serif;font-weight:400;font-size:24px;letter-spacing:.05em;text-transform:uppercase;margin:0 0 8px;color:var(--bone)}
+.pf p{margin:0;color:var(--ash);font-size:16.5px;line-height:1.6}
+
+/* Мина: портреты в готических арках */
+.faces{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:36px}
+@media (max-width:760px){.faces{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.faces img{border-radius:999px 999px 6px 6px;border:2px solid var(--rust);aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;width:100%;
+  filter:grayscale(.15) contrast(1.05);transition:filter .3s,border-color .3s,transform .3s}
+.faces img:hover{filter:none;border-color:var(--blood-l);transform:translateY(-4px)}
+.cap{text-align:center;color:var(--ash);font-style:italic;max-width:40em;margin:14px auto 0}
+
+.pgal{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:36px}
+.pgal button{padding:0;border:1px solid var(--rust);background:#000;cursor:zoom-in;position:relative;transition:border-color .2s}
+.pgal button:hover{border-color:var(--blood-l)}
+.pgal img{width:100%;aspect-ratio:16/10;object-fit:cover}
+
+.pcta{text-align:center;border:1px solid var(--rust);padding:clamp(28px,5vw,54px);background:radial-gradient(circle at 50% 0,rgba(179,18,47,.3),transparent 70%),#0f070a}
+.pcta h2{font-size:clamp(34px,5vw,54px);color:var(--bone)}
+.pcta p{color:var(--ash);margin:12px auto 0;max-width:34em}
+
+.pfoot{border-top:1px solid var(--rust);padding-block:34px calc(30px + env(safe-area-inset-bottom,0px));margin-top:40px;text-align:center;color:var(--ash);font-size:14px}
+.pfoot a{color:var(--bone);text-decoration:none;font-family:"Pogost",Georgia,serif;letter-spacing:.1em;font-size:20px}
+
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(96vw,1400px);max-height:94vh}
+dialog.lb::backdrop{background:rgba(5,2,3,.9)}
+dialog.lb img{max-height:90vh;width:auto;border:1px solid var(--blood)}
+dialog.lb button{position:absolute;top:8px;right:8px;width:44px;height:44px;border:1px solid var(--blood);background:#140a0d;color:var(--bone);font:24px/1 Georgia,serif;cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media (max-width:620px){.phero .bg{background-position:86% 18%}}

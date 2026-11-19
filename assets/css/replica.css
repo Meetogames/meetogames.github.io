@@ -1,0 +1,88 @@
+/* ПРОЕКТ: РЕПЛИКА — своя страница: терминал бункера, ЭЛТ, камеры наблюдения. Заголовки — пиксельный шрифт игры (SVG). */
+:root{--bg:#030604;--scr:#06110b;--ph:#8dffb0;--ph-d:#3f9c62;--ph-dd:#1d4a30;--red:#ff5a36;--amber:#ffc86b;color-scheme:dark;
+  --mono:Consolas,"Lucida Console","Courier New",ui-monospace,monospace}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ph);font:16px/1.65 var(--mono);-webkit-font-smoothing:none;overflow-x:hidden;
+  text-shadow:0 0 6px rgba(141,255,176,.35)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 1px,transparent 1px 3px),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.55));
+  animation:flicker 4s infinite}
+@keyframes flicker{0%,100%{opacity:1}50%{opacity:.93}52%{opacity:1}}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--ph)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.bit{display:block;height:auto;max-width:100%;image-rendering:pixelated;filter:drop-shadow(0 0 6px currentColor)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.rbar{border-bottom:1px solid var(--ph-dd);background:rgba(3,6,4,.92);position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top,0px)}
+.rbar .wrap{display:flex;align-items:center;gap:16px;min-height:52px;font-size:14px}
+.rbar .sys{color:var(--ph-d)}
+.rbar a{text-decoration:none;color:var(--ph)}
+.rbar .lang{margin-left:auto;display:flex;gap:2px}
+.rbar .lang a{padding:2px 8px}
+.rbar .lang a[aria-current]{background:var(--ph);color:var(--bg);text-shadow:none}
+.rbar .back:hover,.rbar .lang a:hover{text-decoration:underline}
+
+/* экран-монитор */
+.screen{margin:34px auto 0;border:2px solid var(--ph-dd);border-radius:22px;background:radial-gradient(ellipse at center,#0a1c12,var(--scr) 70%);
+  box-shadow:inset 0 0 60px rgba(0,0,0,.8),0 0 40px rgba(60,180,110,.12);padding:clamp(20px,4vw,44px);position:relative;overflow:hidden}
+.rhero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:34px;align-items:center}
+@media (max-width:880px){.rhero{grid-template-columns:1fr}}
+.rhero .hdr{display:flex;justify-content:space-between;color:var(--ph-d);font-size:13px;border-bottom:1px solid var(--ph-dd);padding-bottom:8px;margin-bottom:22px}
+.rhero h1{margin:0}
+.rhero .title{width:100%;color:var(--red)}
+.type{margin-top:16px;font-size:clamp(15px,1.9vw,19px);white-space:pre-wrap}
+.type .t{display:inline-block;overflow:hidden;white-space:nowrap;vertical-align:bottom;max-width:0;animation:typing 2.4s steps(44) .4s forwards}
+@keyframes typing{to{max-width:100%}}
+@media (max-width:560px){.type .t{white-space:normal;max-width:none;animation:none}}
+.cur{display:inline-block;width:.62em;height:1.05em;background:var(--ph);vertical-align:-.15em;margin-left:2px;animation:blink 1s steps(1) infinite;box-shadow:0 0 8px var(--ph)}
+@keyframes blink{50%{opacity:0}}
+.menu{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:4px}
+.menu a{text-decoration:none;display:inline-block;padding:2px 8px}
+.menu a::before{content:"  ";white-space:pre}
+.menu a:hover,.menu a:focus-visible{background:var(--ph);color:var(--bg);text-shadow:none}
+.menu a:hover::before,.menu a:focus-visible::before{content:"► "}
+.mon{border:10px solid #c9d8c8;border-radius:16px;background:#000;box-shadow:0 0 0 2px #7c8a7b,0 20px 40px rgba(0,0,0,.6);filter:saturate(.9)}
+.mon img{border-radius:6px}
+
+.warn{margin-top:26px;border:2px solid var(--red);color:var(--red);padding:14px 16px;display:grid;gap:8px;text-shadow:0 0 6px rgba(255,90,54,.5)}
+.warn .bit{color:var(--red);width:min(240px,60%)}
+.chips{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;color:var(--amber);font-size:14px}
+.chips span::before{content:"[ ";color:var(--ph-d)}.chips span::after{content:" ]";color:var(--ph-d)}
+
+.rsec{padding-block:56px}
+.rh2{color:var(--ph);width:auto;height:clamp(34px,5vw,52px);margin-bottom:22px}
+.out p{margin:0 0 14px;max-width:72ch}
+.out p::before{content:"> ";color:var(--ph-d)}
+.rfeat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:700px){.rfeat{grid-template-columns:1fr}}
+.rf{border:1px solid var(--ph-dd);padding:16px 18px;background:rgba(10,30,18,.35)}
+.rf h3{margin:0 0 6px;font-size:16px;color:var(--amber);text-shadow:0 0 6px rgba(255,200,107,.4);font-weight:700}
+.rf h3::before{content:"[+] ";color:var(--ph)}
+.rf p{margin:0;color:#b8f5cb}
+
+/* камеры наблюдения */
+.cams{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.cam{position:relative;border:1px solid var(--ph-dd);background:#000;padding:0;cursor:zoom-in;font:inherit;color:inherit;text-align:left}
+.cam img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:contrast(1.05) saturate(.85)}
+.cam::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.3) 0 1px,transparent 1px 3px);pointer-events:none}
+.cam .lab{position:absolute;left:8px;top:6px;font-size:12px;color:#e8ffe9;background:rgba(0,0,0,.55);padding:1px 6px;z-index:2}
+.cam .rec{position:absolute;right:8px;top:6px;font-size:12px;color:#ff4d3a;background:rgba(0,0,0,.55);padding:1px 6px;z-index:2}
+.cam .rec::before{content:"● ";animation:blink 1.2s steps(1) infinite}
+.cam .ts{position:absolute;right:8px;bottom:6px;font-size:12px;color:#e8ffe9;background:rgba(0,0,0,.55);padding:1px 6px;z-index:2}
+.cam:hover{border-color:var(--ph)}
+
+.rcta{border:1px dashed var(--ph-d);padding:22px;display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;justify-content:space-between}
+.rcta .st{font-size:clamp(16px,2.2vw,20px)}
+.rcta a{border:1px solid var(--ph);padding:8px 14px;text-decoration:none}
+.rcta a:hover{background:var(--ph);color:var(--bg);text-shadow:none}
+.rfoot{border-top:1px solid var(--ph-dd);padding-block:26px calc(24px + env(safe-area-inset-bottom,0px));margin-top:30px;color:var(--ph-d);font-size:13px;text-align:center}
+.rfoot a{color:var(--ph)}
+
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(96vw,1400px);max-height:94vh}
+dialog.lb::backdrop{background:rgba(0,0,0,.9)}
+dialog.lb img{max-height:90vh;width:auto;border:2px solid var(--ph-dd)}
+dialog.lb button{position:absolute;top:8px;right:8px;width:42px;height:42px;border:1px solid var(--ph);background:#000;color:var(--ph);font:20px/1 var(--mono);cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.type .t{max-width:none}html{scroll-behavior:auto}}
