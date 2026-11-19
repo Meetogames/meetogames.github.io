@@ -102,3 +102,8 @@ dialog.lb button{position:absolute;top:8px;right:8px;width:44px;height:44px;bord
 /* логотип игры вместо текстового заголовка */
 .phero h1.plogo{margin:14px 0 10px;animation:flick 6s infinite}
 .phero h1.plogo img{width:min(620px,92%);height:auto;filter:drop-shadow(0 0 14px rgba(224,48,78,.7)) drop-shadow(0 0 40px rgba(179,18,47,.45))}
+
+/* переносы: без висячих слов, заголовки ровными строками */
+p,li{text-wrap:pretty}
+h1,h2,h3{text-wrap:balance}
+.nw{white-space:nowrap}

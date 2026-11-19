@@ -19,6 +19,7 @@ a{color:var(--ph)}
 .rbar{border-bottom:1px solid var(--ph-dd);background:rgba(3,6,4,.92);position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top,0px)}
 .rbar .wrap{display:flex;align-items:center;gap:16px;min-height:52px;font-size:14px}
 .rbar .sys{color:var(--ph-d)}
+@media (max-width:620px){.rbar .sys{display:none}}   /* та же строка есть на экране-терминале */
 .rbar a{text-decoration:none;color:var(--ph)}
 .rbar .lang{margin-left:auto;position:relative}
 .rbar .lang summary{list-style:none;cursor:pointer;-webkit-user-select:none;user-select:none;display:flex;align-items:center;gap:7px;padding:2px 9px;border:1px solid var(--ph-dd)}
@@ -97,3 +98,8 @@ dialog.lb::backdrop{background:rgba(0,0,0,.9)}
 dialog.lb img{max-height:90vh;width:auto;border:2px solid var(--ph-dd)}
 dialog.lb button{position:absolute;top:8px;right:8px;width:42px;height:42px;border:1px solid var(--ph);background:#000;color:var(--ph);font:20px/1 var(--mono);cursor:pointer}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}.type .t{max-width:none}html{scroll-behavior:auto}}
+
+/* переносы: без висячих слов, заголовки ровными строками */
+p,li{text-wrap:pretty}
+h1,h2,h3{text-wrap:balance}
+.nw{white-space:nowrap}
