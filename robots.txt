@@ -7,4 +7,9 @@ Disallow: /pt/go/
 Disallow: /de/go/
 Disallow: /fr/go/
 Disallow: /tr/go/
+Disallow: /tt/
+Disallow: /yt/
+Disallow: /ig/
+Disallow: /tg/
+Disallow: /x/
 Sitemap: https://meetogames.github.io/sitemap.xml
