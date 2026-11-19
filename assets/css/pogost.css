@@ -87,3 +87,7 @@ dialog.lb img{max-height:90vh;width:auto;border:1px solid var(--blood)}
 dialog.lb button{position:absolute;top:8px;right:8px;width:44px;height:44px;border:1px solid var(--blood);background:#140a0d;color:var(--bone);font:24px/1 Georgia,serif;cursor:pointer}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 @media (max-width:620px){.phero .bg{background-position:86% 18%}}
+
+/* логотип игры вместо текстового заголовка */
+.phero h1.plogo{margin:14px 0 10px;animation:flick 6s infinite}
+.phero h1.plogo img{width:min(620px,92%);height:auto;filter:drop-shadow(0 0 14px rgba(224,48,78,.7)) drop-shadow(0 0 40px rgba(179,18,47,.45))}
