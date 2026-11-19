@@ -18,9 +18,20 @@ a{color:var(--blood-l)}
 .pbar a{color:var(--ash);text-decoration:none;font-size:15px}
 .pbar a:hover{color:var(--bone)}
 .pbar .back{font-family:"Pogost",Georgia,serif;letter-spacing:.08em;font-size:18px}
-.pbar .lang{margin-left:auto;display:flex;gap:4px}
-.pbar .lang a{padding:4px 10px;border:1px solid transparent;font-family:"Pogost",Georgia,serif;font-size:16px;letter-spacing:.08em}
-.pbar .lang a[aria-current]{border-color:var(--blood);color:var(--bone);background:rgba(179,18,47,.18)}
+.pbar .lang{margin-left:auto;position:relative}
+.pbar .lang summary{list-style:none;cursor:pointer;-webkit-user-select:none;user-select:none;display:flex;align-items:center;gap:8px;padding:6px 12px 4px;border:1px solid var(--rust);
+  color:var(--bone);font-family:"Pogost",Georgia,serif;font-size:17px;letter-spacing:.08em}
+.pbar .lang summary::-webkit-details-marker{display:none}
+.pbar .lang summary svg{width:16px;height:16px;color:var(--blood-l)}
+.pbar .lang[open] summary,.pbar .lang summary:hover{border-color:var(--blood);background:rgba(179,18,47,.18)}
+.pbar .lang .chev{width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-3px) rotate(45deg)}
+.pbar .lang[open] .chev{transform:translateY(0) rotate(-135deg)}
+.pbar .lang-menu{position:absolute;right:0;top:calc(100% + 6px);min-width:200px;background:var(--bg2);border:1px solid var(--rust);padding:6px;display:grid;gap:2px;
+  box-shadow:0 18px 40px rgba(0,0,0,.6),0 0 0 1px rgba(179,18,47,.15) inset;z-index:30}
+.pbar .lang-menu a{display:flex;gap:12px;align-items:center;padding:7px 10px;font-size:16px;color:var(--ash)}
+.pbar .lang-menu a b{font-family:"Pogost",Georgia,serif;font-weight:400;min-width:28px;color:var(--blood-l);letter-spacing:.06em}
+.pbar .lang-menu a:hover{color:var(--bone);background:rgba(179,18,47,.12)}
+.pbar .lang-menu a[aria-current]{color:var(--bone);background:rgba(179,18,47,.24);box-shadow:inset 0 0 0 1px var(--blood)}
 
 /* первый экран */
 .phero{position:relative;min-height:min(92vh,860px);display:grid;align-items:end;overflow:hidden;border-bottom:1px solid var(--rust)}

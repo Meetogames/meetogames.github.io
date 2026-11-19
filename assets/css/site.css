@@ -37,9 +37,23 @@ p{margin:0}
 .top nav{display:flex;gap:6px;margin-left:auto;align-items:center;flex-wrap:wrap;justify-content:flex-end}
 .top nav a{color:var(--on-ink);text-decoration:none;font-weight:700;font-size:16px;padding:8px 14px;border-radius:999px}
 .top nav a:hover{background:rgba(255,255,255,.1)}
-.lang{display:flex;background:rgba(255,255,255,.1);border-radius:999px;padding:4px;gap:2px;margin-left:4px}
-.lang a{padding:5px 11px!important;font-size:14px!important;font-weight:800!important;color:var(--on-ink-2)!important}
-.lang a[aria-current]{background:var(--pink);color:#fff!important;box-shadow:inset 0 2px 0 rgba(255,255,255,.35),inset 0 -3px 0 rgba(0,0,0,.15)}
+.lang{position:relative;margin-left:4px}
+.lang summary{list-style:none;display:flex;align-items:center;gap:7px;cursor:pointer;-webkit-user-select:none;user-select:none;background:rgba(255,255,255,.1);
+  color:var(--on-ink);font-weight:800;font-size:14px;letter-spacing:.03em;padding:9px 13px;border-radius:999px;transition:background .15s}
+.lang summary::-webkit-details-marker{display:none}
+.lang summary svg{width:18px;height:18px}
+.lang summary:hover,.lang[open] summary{background:var(--pink);color:#fff;box-shadow:inset 0 2px 0 rgba(255,255,255,.35),inset 0 -3px 0 rgba(0,0,0,.15)}
+.lang .chev{width:7px;height:7px;border-right:2.5px solid currentColor;border-bottom:2.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .15s}
+.lang[open] .chev{transform:translateY(1px) rotate(-135deg)}
+.top nav.lang-menu,.lang-menu{margin:0;flex-wrap:nowrap;justify-content:stretch;position:absolute;right:0;top:calc(100% + 10px);min-width:200px;background:var(--ink);border:2px solid rgba(255,255,255,.12);border-radius:20px;padding:6px;
+  display:grid;gap:2px;box-shadow:0 18px 44px rgba(10,8,30,.5);z-index:40;animation:langIn .14s ease-out}
+@keyframes langIn{from{opacity:0;transform:translateY(-6px)}}
+.top nav .lang-menu a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:14px;font-size:15px;font-weight:600;color:var(--on-ink)}
+.lang-menu a b{min-width:26px;font-size:12px;font-weight:900;letter-spacing:.05em;color:var(--on-ink-2)}
+.top nav .lang-menu a:hover{background:rgba(255,255,255,.1)}
+.top nav .lang-menu a[aria-current]{background:var(--pink);color:#fff}
+.lang-menu a[aria-current] b{color:#fff}
+@media (prefers-reduced-motion:reduce){.lang-menu{animation:none}}
 @media (max-width:620px){.top nav .navlink{display:none}.top .brand img{height:36px}}
 
 /* ---------- пластилиновые кнопки ---------- */
