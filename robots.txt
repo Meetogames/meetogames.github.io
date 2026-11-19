@@ -1,3 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /go/
+Disallow: /ru/go/
+Disallow: /es/go/
+Disallow: /pt/go/
+Disallow: /de/go/
+Disallow: /fr/go/
+Disallow: /tr/go/
 Sitemap: https://meetogames.github.io/sitemap.xml
